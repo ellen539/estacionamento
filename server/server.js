@@ -8,7 +8,7 @@ app.use(express.json());
 
 // Configura o MySQL com os dados fornecidos
 const db = mysql.createConnection({
-    host: 'localhost', // Ajuste o host se necessário
+    host: 'localhost', 
     user: 'Estacionamento',
     password: 'Pga1914!',
     database: 'estacionamento'
@@ -26,11 +26,10 @@ db.connect((err) => {
 // Define a porta do servidor
 const PORT = 3000;
 
-// Configura a rota para responder com "Olá, mundo!"
 app.get('/', (req, res) => {
     res.send('Olá testando servidor node');
 });
-app.post('/cadastrar_movimento_veiculos', (req, res) => {
+app.post('/veiculos', (req, res) => {
     const { placa_veiculo, data_entrada, data_saida, valor_hora } = req.body;
 
     // Cria o comando SQL para inserção
